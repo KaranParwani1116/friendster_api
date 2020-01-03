@@ -10,7 +10,7 @@ try {
    $pdo = new PDO($dbh, $username, $password);
 
 } catch (Exception $e) {
-	echo "Connection error";
+	echo $e->getMessage();
 	die();
 }
 
