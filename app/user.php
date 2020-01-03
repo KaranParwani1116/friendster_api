@@ -418,8 +418,8 @@ $app->get('/app/details',function($request){
 // Test Api for sending Notification 
 
 $app->get('/app/test',function($request){
-	$userrinfo = getUserInfo("gCYGGceafgOXaqB3fOjvEnacb0t1");
-	echo $userrinfo->userToken;
+	
+	echo "Hi How are you";
 	
 
 });
