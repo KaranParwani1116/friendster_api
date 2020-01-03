@@ -1,8 +1,8 @@
 <?php
 
-$dbh = 'mysql:host=http://99.000webhost.io:3306/phpmyadmin;dbname=d12124452_friendster';
-$username = 'id12124452_root';
-$password = 'karan';
+$dbh = 'mysql:host=remotemysql.com:3306/phpmyadmin;dbname=WB5NBKqNZ5';
+$username = 'WB5NBKqNZ5';
+$password = 'EjE2q24wE0';
 
 try {
 	
