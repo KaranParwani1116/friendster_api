@@ -1,6 +1,7 @@
 <?php
 
-$dbh = 'mysql:host=localhost; dbname=id12124452_friendster';
+$dbh = 'mysql:host=	
+99.000webhost.io:3306; dbname=id12124452_friendster';
 $username = 'id12124452_root';
 $password = 'kpthegreat1116';
 
