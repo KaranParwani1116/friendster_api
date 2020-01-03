@@ -32,8 +32,32 @@ $app->post('/app/poststatus', function ($request) {
     	$stmt->bindParam(':privacy' , $privacy , PDO::PARAM_STR);
     	$stmt=$stmt->execute();
 
+    	$postid = $pdo->lastInsertId();
+
     	if($stmt){
+
+    		if($privacy == "0"  || $privacy=="1")
+    		{
+    			$stmt = $pdo->prepare("SELECT `profileId` FROM `friends` WHERE `userId`= :postUserId;");
+    			$stmt->bindParam(':postUserId',$postUserId,PDO::PARAM_STR);
+    		    $stmt->execute();
+    			$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    			foreach($row as $key => $id){
+    				$stmt = $pdo->prepare("INSERT INTO `timeline` (`whoseTimeline`,`postid`,`statusTime`) VALUES (:timeline,:postid,current_timestamp);");
+    				$stmt->bindParam(':timeline',$row[$key]['profileId']);
+    				$stmt->bindParam(':postid',$postid);
+    				$stmt->execute();
+    			}
+    		}
+
+    		$stmt = $pdo->prepare("INSERT INTO `timeline` (`whoseTimeline`,`postid`,`statusTime`) VALUES (:timeline,:postid,current_timestamp);");
+    				$stmt->bindParam(':timeline',$postUserId);
+    				$stmt->bindParam(':postid',$postid);
+    				$stmt->execute();
+
     		echo true;
+    		
     	}
     	else{
     		echo false;
