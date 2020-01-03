@@ -1,7 +1,7 @@
 <?php
 
-$dbh = 'mysql:host=localhost; dbname=friendster';
-$username = 'root';
+$dbh = 'mysql:host=localhost; dbname=id12124452_friendster';
+$username = 'id12124452_root';
 $password = 'kpthegreat1116';
 
 try {
