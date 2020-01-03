@@ -1,6 +1,6 @@
 <?php
 	$app->post('/app/postcomment',function($request){
-	include __DIR__ . '/../bootstrap/dbconnect.php';
+	include __DIR__ . '/../Bootstrap/dbconnect.php';
 	
 		// The actual Comment
 		$comment = $request->getParsedBody()['comment'];
@@ -136,7 +136,7 @@
 
 
 $app->get('/app/retrivetopcomment',function($request){
-	include __DIR__ . '/../bootstrap/dbconnect.php';
+	include __DIR__ . '/../Bootstrap/dbconnect.php';
 		
 		$postId = $request->getParam('postId');
 		$response=array();
@@ -149,7 +149,7 @@ $app->get('/app/retrivetopcomment',function($request){
 
 
 $app->get('/app/retrivelowlevelcomment',function($request){
-	include __DIR__ . '/../bootstrap/dbconnect.php';
+	include __DIR__ . '/../Bootstrap/dbconnect.php';
 		
 		$postId = $request->getParam('postId');
 		$commentId = $request->getParam('commentId');
@@ -161,7 +161,7 @@ $app->get('/app/retrivelowlevelcomment',function($request){
 				
 });
 function retriveTopLevelComment($postId){
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt = $pdo->prepare("
 				SELECT comments.*,users.name,users.profileUrl,users.userToken
 				FROM `comments`
@@ -198,7 +198,7 @@ function retriveTopLevelComment($postId){
 		return ($result);
 	}
 	function retriveLowLevelComment($superParentId,$commentId){
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt = $pdo->prepare("
 				SELECT comments.*,users.name,users.profileUrl,users.userToken
 				FROM `comments`
@@ -211,7 +211,7 @@ function retriveTopLevelComment($postId){
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 function getCommenttedData($postId,$commentId){
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt = $pdo->prepare("
 				SELECT comments.*,users.name,users.profileUrl,users.userToken
 				FROM `comments`
@@ -224,7 +224,7 @@ function getCommenttedData($postId,$commentId){
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 	function getSubCommenttedData($superParentId,$parentId,$commentId){
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+	       include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt = $pdo->prepare("
 				SELECT comments.*,users.name,users.profileUrl,users.userToken
 				FROM `comments`
@@ -238,7 +238,7 @@ function getCommenttedData($postId,$commentId){
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 function retriveLastComment($postId,$parentComment){
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 	
 		$stmt = $pdo->prepare("
 				SELECT comments.comment,comments.commentBy, comments.commentDate,users.name,users.profileUrl
@@ -252,7 +252,7 @@ function retriveLastComment($postId,$parentComment){
 		return $stmt->fetchALL(PDO::FETCH_ASSOC);
 	}
 	function retriveTotalCommentCount($postId,$parentComment){
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 	
 		$stmt = $pdo->prepare("
 				SELECT count(*) as totalCount

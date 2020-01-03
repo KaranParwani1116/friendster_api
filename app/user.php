@@ -152,7 +152,7 @@ $app->get('/app/search', function($request){
 
 $app->get('/app/loadfriends',function($request){
 
-	include __DIR__ .'/../bootstrap/dbconnect.php';
+	include __DIR__ . '/../Bootstrap/dbconnect.php';
 	$userId = $request->getParam('userId');
 
 	$stmt = $pdo->prepare('
@@ -191,7 +191,7 @@ $app->get('/app/loadfriends',function($request){
 
 $app->get('/app/profiletimeline',function($request){
 
-     	 include __DIR__ . '/../bootstrap/dbconnect.php';
+     	 include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 
 		 $onlineid = $request->getParam('onlineid');
@@ -304,7 +304,7 @@ $app->get('/app/profiletimeline',function($request){
 //Api for personalized timeline
 $app->get('/app/gettimelinepost',function($request){
 
-     	 include __DIR__ . '/../bootstrap/dbconnect.php';
+     	 include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 		
 		
@@ -356,7 +356,7 @@ $app->get('/app/gettimelinepost',function($request){
 
 $app->get('/app/getnotification',function($request){
 
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 		 $userId = $request->getParam('uid');
 
 		$stmt = $pdo->prepare('
@@ -386,7 +386,7 @@ $app->get('/app/getnotification',function($request){
 
 //loading single post
 $app->get('/app/details',function($request){
- 	include __DIR__ . '/../bootstrap/dbconnect.php';
+ 	include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 
 		$postId = $request->getParam('postId');
@@ -428,7 +428,7 @@ $app->get('/app/test',function($request){
 //function to check like
 
 function checkLike($userId,$postId){
-	 include __DIR__ . '/../bootstrap/dbconnect.php';
+	include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt = $pdo->prepare("SELECT * FROM `userpostlikes` WHERE `likeBy` = :userId AND `postOn` = :postId");
 		$stmt->bindParam(":userId", $userId, PDO::PARAM_STR);
 		$stmt->bindParam(":postId", $postId, PDO::PARAM_INT);

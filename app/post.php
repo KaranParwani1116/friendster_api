@@ -115,7 +115,7 @@ $app->post('/app/uploadImage', function ($request) {
 $app->post('/app/likeunlike',function($request){
 
 
-		include __DIR__ .'/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 		
 		$userId = $request->getParsedBody()['userId'];
 		$contentId =  $request->getParsedBody()['postId'];
@@ -230,7 +230,7 @@ $app->post('/app/likeunlike',function($request){
 
 function getLikeCount($postId){
 
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt =  $pdo->prepare("SELECT likeCount from `posts` WHERE `postId` = :postId LIMIT 1");
 		$stmt->bindParam(':postId', $postId, PDO::PARAM_STR);
 		$stmt->execute();

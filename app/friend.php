@@ -5,7 +5,7 @@ $app->post('/app/performAction',function($request){
 
 
 
-     	 include __DIR__ . '/../bootstrap/dbconnect.php';
+     	 include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 		 $userId = $request->getParsedBody()['userId'];
 		 $profileId = $request->getParsedBody()['profileId'];
@@ -28,7 +28,7 @@ $app->post('/app/performAction',function($request){
 
  
   function checkRequest($userId,$profileId){
-		include __DIR__ . '/../bootstrap/dbconnect.php';
+		include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt = $pdo->prepare("SELECT * FROM `requests` WHERE `sender` = :userId AND `receiver` = :profileId OR `sender` = :profileId AND `receiver` = :userId");
 		$stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
 		$stmt->bindParam(':profileId', $profileId, PDO::PARAM_INT);
@@ -39,7 +39,7 @@ $app->post('/app/performAction',function($request){
 
     function checkFriend($userId,$profileId){
 
-	 	 include __DIR__ . '/../bootstrap/dbconnect.php';
+	 	 include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 			$stmt = $pdo->prepare("SELECT * FROM `friends` WHERE `userId` = :userId AND `profileId` = :profileId");
 			$stmt->bindParam(':userId', $userId, PDO::PARAM_STR);
@@ -85,7 +85,7 @@ $app->post('/app/performAction',function($request){
 
 	 function acceptRequest($userId,$profileId){
 
-	 	include __DIR__ . '/../bootstrap/dbconnect.php';
+	 	include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 		$addToFriendTable1= insert('friends', array('userId' => $userId, 'profileId' => $profileId, 'friendOn' => date('Y-m-d H:i:s')));
 		$addToFriendTable2= insert('friends', array('userId' => $profileId, 'profileId' => $userId, 'friendOn' => date('Y-m-d H:i:s')));
@@ -121,7 +121,7 @@ $app->post('/app/performAction',function($request){
 	}
 
 	 function unFriend($userId,$profileId){
-	 	include __DIR__ . '/../bootstrap/dbconnect.php';
+	 	include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 			$unFriend1 = delete('friends', array('userId' => $userId, 'profileId' => $profileId));
 			$unFriend2 = delete('friends', array('userId' => $profileId, 'profileId' => $userId));
@@ -134,7 +134,7 @@ $app->post('/app/performAction',function($request){
 	}
 
 	 function insert($table, $fields = array()){
-	 	include __DIR__ . '/../bootstrap/dbconnect.php';
+	 	include __DIR__ . '/../Bootstrap/dbconnect.php';
 
 		$columns = implode(',', array_keys($fields));
 
@@ -154,7 +154,7 @@ $app->post('/app/performAction',function($request){
 	}
 
 	 function delete($table, $array){
-	 	include __DIR__ . '/../bootstrap/dbconnect.php';
+	 	include __DIR__ . '/../Bootstrap/dbconnect.php';
 		
 		$sql   = "DELETE FROM " . $table;
 		$where = " WHERE ";

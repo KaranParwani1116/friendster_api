@@ -50,7 +50,7 @@ function sendNotification($token,$title,$body,$ProfileUrl){
 
 function getUserInfo($userId){
 
-	include __DIR__ . '/../bootstrap/dbconnect.php';
+	include __DIR__ . '/../Bootstrap/dbconnect.php';
 		$stmt =  $pdo->prepare("SELECT name, userToken, profileUrl from `users` WHERE `uid` = :uid LIMIT 1");
 		$stmt->bindParam(':uid', $userId, PDO::PARAM_STR);
 			$stmt->execute();
