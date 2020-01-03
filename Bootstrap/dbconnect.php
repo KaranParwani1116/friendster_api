@@ -1,8 +1,8 @@
 <?php
 
-$dbh = 'mysql:host=localhost; dbname=friendster';
-$username = 'root';
-$password = '';
+$dbh = 'mysql:host=localhost; dbname=id12124452_friendster';
+$username = 'id12124452_root';
+$password = 'kpthegreat';
 
 try {
 	
