@@ -1,9 +1,8 @@
 <?php
 
-$dbh = 'mysql:host=	
-99.000webhost.io:3306; dbname=id12124452_friendster';
+$dbh = 'mysql:host=http://99.000webhost.io:3306/phpmyadmin;dbname=d12124452_friendster';
 $username = 'id12124452_root';
-$password = 'kpthegreat';
+$password = 'karan';
 
 try {
 	
