@@ -141,8 +141,9 @@ $app->post('/app/likeunlike',function($request){
 					$stmt= $stmt->execute();
 							
 			
-					if($stmt && $userId!=$contentOwnerId){
-												
+					if($stmt){
+								
+						if($userId!=$contentOwnerId){						
 						$stmt = $pdo->prepare("INSERT INTO `notifications` (`notificationTo`, `notificationFrom`, `type`,`notificationTime`,`postId`) VALUES (:notificationTo, :notificationFrom,:type, current_timestamp,:postId); ");
 							
 							// type  = 1  means notification is  for post like
@@ -151,7 +152,8 @@ $app->post('/app/likeunlike',function($request){
 							$stmt->bindParam(':notificationFrom', $userId, PDO::PARAM_STR);
 							$stmt->bindParam(':postId', $contentId, PDO::PARAM_STR);
 							$stmt->bindParam(':type', $type, PDO::PARAM_INT);
-							$stmt= $stmt->execute();
+							$stmt= $stmt->execute();}
+
 		                    
 							
 							if($stmt){
