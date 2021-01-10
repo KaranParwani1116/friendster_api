@@ -15,8 +15,7 @@ $app->post('/app/login', function ($request) {
     $checkstmt->execute();
     $count = $checkstmt->rowcount();
 
-    if($count==1)
-    {
+    if($count==1) {
       //user is already signed in so we have to update the user token
 
     	$stmt = $pdo->prepare("UPDATE `users` SET `userToken` = :userToken WHERE `uid` = :uid;");
@@ -25,7 +24,7 @@ $app->post('/app/login', function ($request) {
     	$stmt=$stmt->execute();
 
 
-    }else{
+    } else {
 
     	//inserting the data of the new user in database
 
@@ -420,7 +419,6 @@ $app->get('/app/details',function($request){
 $app->get('/app/test',function($request){
 	
 	echo "Hi How are you";
-	
 
 });
 
