@@ -8,4 +8,10 @@ class TodoTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(201, checkLoginUser("Karan", "karanparwani.parwani102@gmail.com"));
     } 
 
+    public function testLoadingOwnProfile() {
+        $uid = 'fasfhsafsfykayrexafghfakfbak';
+        $expectedStatus = 200;
+        $this->assertEquals(200, checkProfile($uid));
+    }
+
 }
