@@ -1,9 +1,9 @@
 <?php
 
 
-$dbh = 'mysql:host=remotemysql.com:3306/phpmyadmin;dbname=WB5NBKqNZ5';
-$username = 'WB5NBKqNZ5';
-$password = 'EjE2q24wE0';
+$dbh = 'mysql:host=localhost:3306;dbname=old_frnt';
+$username = 'root';
+$password = 'karan';
 
 try {
 	
