@@ -6,4 +6,4 @@ before_install:
   - docker build -t phpapp .
 
 script:
-  - docker run phpapp ./vendor/bin/phpunit ./test/TodoTest.php 
+  - docker run phpapp ./vendor/bin/phpunit ./test/TodoTest.php
