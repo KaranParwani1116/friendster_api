@@ -1,6 +1,5 @@
 FROM php:7.4-apache
-WORKDIR /app
-COPY . /app
+COPY . /var/www/html/
 RUN chmod -R a+r /var/www/html/
 RUN a2enmod rewrite
 EXPOSE 80
