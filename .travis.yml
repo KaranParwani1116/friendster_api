@@ -4,4 +4,4 @@ services:
 
 script:
   - docker build -t phpapp .
-  - docker run phpapp ../../../var/www/html/vendor/bin/phpunit ./test/TodoTest.php
+  - docker run phpapp ./vendor/bin/phpunit ./test/TodoTest.php
