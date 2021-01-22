@@ -2,8 +2,6 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - docker build -t phpapp .
-
 script:
+  - docker build -t phpapp .
   - docker run phpapp ../../../var/www/html/vendor/bin/phpunit ./test/TodoTest.php
