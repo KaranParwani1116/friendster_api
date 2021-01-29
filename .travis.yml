@@ -4,4 +4,3 @@ services:
 
 script:
   - docker build -t phpapp .
-  - docker run phpapp
